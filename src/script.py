@@ -62,22 +62,22 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # --- USER CONFIGURATION ---
-# USERNAME and PASSWORD will be read from src/user-creds/user-credentials.txt (relative to this script)
+# USERNAME and PASSWORD will be read from src/user-creds/user_credentials.txt (relative to this script)
 try:
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    creds_path = os.path.join(script_dir, 'user-creds', 'user-credentials.txt')
+    creds_path = os.path.join(script_dir, 'user-creds', 'user_credentials.txt')
     if not os.path.isfile(creds_path):
-        raise FileNotFoundError(f"Could not find user-credentials.txt at {creds_path}")
+        raise FileNotFoundError(f"Could not find user_credentials.txt at {creds_path}")
     with open(creds_path, 'r', encoding='utf-8') as cred_file:
         lines = [line.strip() for line in cred_file if line.strip()]
         if len(lines) < 2:
-            raise ValueError("user-credentials.txt must have at least two non-empty lines: first for username, second for password.")
+            raise ValueError("user_credentials.txt must have at least two non-empty lines: first for username, second for password.")
         if ' ' in lines[0]:
             raise ValueError("Username (first line) must not contain spaces.")
         USERNAME = lines[0]
         PASSWORD = lines[1]
 except Exception as e:
-    msg = f"\nERROR: {str(e)}\n\nCorrect format for user-credentials.txt:\n<username> (no spaces)\n<password> (no spaces)\n\nExample:\nxy12345\nMySecretPassword123\n"
+    msg = f"\nERROR: {str(e)}\n\nCorrect format for user_credentials.txt:\n<username> (no spaces)\n<password> (no spaces)\n\nExample:\nxy12345\nMySecretPassword123\n"
     print(msg)
     sys.exit(1)
 
