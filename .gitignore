@@ -1,0 +1,15 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Credentials
+src/user-creds/user_credentials.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
